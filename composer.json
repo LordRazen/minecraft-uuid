@@ -1,0 +1,24 @@
+{
+    "name": "lordrazen/minecraft-uuid-converter",
+    "description": "A PHP Library to convert the three different Minecraft UUID-Formats.",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "LordRazen",
+            "email": "razen.mailer@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "ramsey/uuid": "4.x-dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "6.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "UUID\\": "src/"
+        }
+    }
+}
