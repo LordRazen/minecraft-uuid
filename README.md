@@ -6,6 +6,11 @@ https://minecraft.fandom.com/wiki/Universally_unique_identifier
 
 <br>
 
+## Installation
+`composer require lordrazen/minecraft-uuid-converter`
+
+<br>
+
 ## UUID Formats
 Regular UUIDs (Hyphenated Hexadecimal):
 
