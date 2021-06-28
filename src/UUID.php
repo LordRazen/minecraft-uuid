@@ -18,7 +18,7 @@
  * @copyright		Copyright (C) 2020. All Rights Reserved
  */
 
-namespace UUID;
+namespace Minecraft;
 
 use Ramsey\Uuid\Uuid as RandomUuid;
 

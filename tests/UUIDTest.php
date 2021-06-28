@@ -8,7 +8,7 @@
  * @copyright		Copyright (C) 2020. All Rights Reserved
  */
 
-use UUID\UUID;
+use Minecraft\UUID;
 use PHPUnit\Framework\TestCase;
 
 class UUIDTest extends TestCase
