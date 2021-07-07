@@ -42,7 +42,7 @@ class UUID
      * @param String $input
      * @return bool
      */
-    public function read(String &$input)
+    public function read(String &$input): bool
     {
         # Match UUID
         if (preg_match(self::PATTERN_UUID, $input, $matches) > 0) {
@@ -68,7 +68,7 @@ class UUID
     /**
      * Generate new random UUID
      */
-    public function generateNew()
+    public function generateNew(): void
     {
         $this->uuid = RandomUuid::uuid4()->toString();
         $this->generateOtherUUIDFormats();
@@ -77,7 +77,7 @@ class UUID
     /**
      * Generate other UUID Formats
      */
-    private function generateOtherUUIDFormats()
+    private function generateOtherUUIDFormats(): void
     {
         # UUID Reg exists
         if (isset($this->uuid)) {
@@ -102,7 +102,7 @@ class UUID
     /**
      * Method to convert UUID (Regular) to UUID (Trimmed)
      */
-    private function convertRegToTrim()
+    private function convertRegToTrim(): void
     {
         $this->uuidTrimmed = str_replace('-', '', $this->uuid);
     }
@@ -110,7 +110,7 @@ class UUID
     /**
      * Method to convert UUID (Trimmed) to UUID (IntArray)
      */
-    private function convertTrimToIntArray()
+    private function convertTrimToIntArray(): void
     {
         # Split UUIDTrimmed into parts of 8 digits
         $parts = str_split($this->uuidTrimmed, 8);
@@ -135,7 +135,7 @@ class UUID
     /**
      * Method to convert UUID (IntArray) to UUID (Int)
      */
-    private function convertIntArrayToInt()
+    private function convertIntArrayToInt(): void
     {
         $result = '';
         foreach ($this->uuidIntArray as $number) {
@@ -147,7 +147,7 @@ class UUID
     /**
      * Method to convert UUID (Trimmed) to UUID (Regular)
      */
-    private function convertTrimToReg()
+    private function convertTrimToReg(): void
     {
         $result = $this->uuidTrimmed;
         $result = substr_replace($result, '-', 8, 0);
@@ -160,7 +160,7 @@ class UUID
     /**
      * Method to convert UUID (Int) to UUID (Trimmed)
      */
-    private function convertIntArrayToTrim()
+    private function convertIntArrayToTrim(): void
     {
         $result = '';
         foreach ($this->uuidIntArray as $number) {
@@ -177,7 +177,7 @@ class UUID
     /**
      * Method to convert UUID (Int) to UUID (IntArray)
      */
-    private function convertIntToIntArray()
+    private function convertIntToIntArray(): void
     {
         preg_match(self::PATTERN_UUID_INT, $this->uuidInt, $matches);
         unset($matches[0]);
@@ -187,15 +187,15 @@ class UUID
     /**
      * Getter
      */
-    public function getUuid()
+    public function getUuid(): string
     {
         return $this->uuid;
     }
-    public function getUuidTrimmed()
+    public function getUuidTrimmed(): string
     {
         return $this->uuidTrimmed;
     }
-    public function getUuidInt()
+    public function getUuidInt(): string
     {
         return $this->uuidInt;
     }
