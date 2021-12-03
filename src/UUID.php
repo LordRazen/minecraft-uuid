@@ -20,6 +20,7 @@
 
 namespace Minecraft;
 
+use Minecraft\Exception\InvalidUUIDException;
 use Ramsey\Uuid\Uuid as RandomUuid;
 
 class UUID

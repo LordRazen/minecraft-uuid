@@ -8,6 +8,7 @@
  * @copyright		Copyright (C) 2020. All Rights Reserved
  */
 
+use Minecraft\Exception\InvalidUUIDException;
 use Minecraft\UUID;
 use PHPUnit\Framework\TestCase;
 
@@ -83,5 +84,16 @@ class UUIDTest extends TestCase
                 ]
             ]
         ];
+    }
+
+    /**
+     * Read Invalid UUID
+     *
+     * @test
+     */
+    public function testInvalidUUID()
+    {
+        $this->expectException(InvalidUUIDException::class);
+        $testObject = new UUID('noUUID');
     }
 }
