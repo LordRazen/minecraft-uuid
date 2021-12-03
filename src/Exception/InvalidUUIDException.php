@@ -1,7 +1,7 @@
 <?php
 
 /**
- * InvalidValueException
+ * InvalidUUIDException
  *
  * @package			MinecraftLibrary
  * @author			LordRazen <http://www.minecraft-heads.com>	
@@ -12,7 +12,7 @@ namespace Minecraft\Exception;
 
 use Exception;
 
-class InvalidValueException extends Exception
+class InvalidUUIDException extends Exception
 {
-    protected $message = 'This is not a valid Value!';
+    protected $message = 'This is not a valid UUID!';
 }

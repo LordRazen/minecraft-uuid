@@ -1,9 +1,9 @@
 {
-    "name": "lordrazen/minecraft-value",
+    "name": "lordrazen/minecraft-uuid",
     "type": "library",
-    "description": "A PHP Library For the Minecraft Custom Heads Value.",
-    "keywords": ["Minecraft","Value", "Heads"],
-    "homepage": "https://github.com/LordRazen/minecraft-value",
+    "description": "A PHP Library to convert between three different Minecraft UUID Formats.",
+    "keywords": ["Minecraft","UUID", "Heads"],
+    "homepage": "https://github.com/LordRazen/minecraft-uuid",
     "license": "GPL-3.0-or-later",
     "authors": [
         {
@@ -13,6 +13,9 @@
         }
     ],
     "minimum-stability": "stable",
+    "require": {
+        "ramsey/uuid": "4.x"
+    },
     "require-dev": {
         "phpunit/phpunit": "9.5"
     },
