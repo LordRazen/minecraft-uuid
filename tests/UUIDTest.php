@@ -28,8 +28,7 @@ class UUIDTest extends TestCase
     {
         $randomUuids = array();
         for ($i = 0; $i < 10; $i++) {
-            $uuid = new UUID();
-            $uuid->generateNew();
+            $uuid = new UUID(UUID::RANDOM);
             array_push($randomUuids, $uuid->getUUID());
         }
         $randomUuidsUnique = array_unique($randomUuids);
@@ -46,8 +45,7 @@ class UUIDTest extends TestCase
      */
     public function testUUIDString(array $data)
     {
-        $testObject = new UUID();
-        $testObject->read($data[self::INPUT]);
+        $testObject = new UUID($data[self::INPUT]);
 
         $this->assertSame($data[self::UUID_REG], $testObject->getUuid());
         $this->assertSame($data[self::UUID_TRIMMED], $testObject->getUuidTrimmed());
