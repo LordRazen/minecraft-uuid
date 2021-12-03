@@ -27,9 +27,9 @@ class UUID
     const TYPE = 'UUID';
     const MARKER = 'I';
 
-    private String $uuid;         # UUID Regular
-    private String $uuidTrimmed;  # UUID Trimmed
-    private String $uuidInt;      # UUIDInt as String
+    private string $uuid;         # UUID Regular
+    private string $uuidTrimmed;  # UUID Trimmed
+    private string $uuidInt;      # UUIDInt as String
     private array  $uuidIntArray = array(); # Array with the values for UUIDInt
 
     const PATTERN_UUID         = '#([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})#';
@@ -39,10 +39,10 @@ class UUID
     /**
      * Read a given UUID to convert it
      * 
-     * @param String $input
+     * @param string $input
      * @return bool
      */
-    public function read(String &$input): bool
+    public function read(string &$input): bool
     {
         # Match UUID
         if (preg_match(self::PATTERN_UUID, $input, $matches) > 0) {
