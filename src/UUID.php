@@ -24,6 +24,7 @@ use Ramsey\Uuid\Uuid as RandomUuid;
 
 class UUID
 {
+    const RANDOM = 'RANDOM';
     const TYPE = 'UUID';
     const MARKER = 'I';
 
@@ -37,38 +38,55 @@ class UUID
     const PATTERN_UUID_INT     = '#\[I;(-?[0-9]*),(-?[0-9]*),(-?[0-9]*),(-?[0-9]*)\]#';
 
     /**
-     * Read a given UUID to convert it
+     * Constructor
      * 
      * @param string $input
-     * @return bool
      */
-    public function read(string &$input): bool
+    public function __construct(string $input = '')
+    {
+        # Create new Random UUID
+        if ($input === self::RANDOM) {
+            $this->generateRandomUuid();
+        }
+        # Check if the $input is not empty
+        else if (!empty($input)) {
+            $this->readUuid($input);
+        }
+    }
+
+    /**
+     * Read UUID String
+     * 
+     * @param string $input
+     * @throws InvalidUUIDException
+     */
+    private function readUuid(string $input): void
     {
         # Match UUID
         if (preg_match(self::PATTERN_UUID, $input, $matches) > 0) {
             $this->uuid = trim($matches[0]);
             $this->generateOtherUUIDFormats();
-            return true;
         }
         # Match UUID (Trimmed)
         else if (preg_match(self::PATTERN_UUID_TRIMMED, $input, $matches) > 0) {
             $this->uuidTrimmed = trim($matches[0]);
             $this->generateOtherUUIDFormats();
-            return true;
         }
         # Match UUID (Int) as String
         else if (preg_match(self::PATTERN_UUID_INT, $input, $matches) > 0) {
             $this->uuidInt = trim($matches[0]);
             $this->generateOtherUUIDFormats();
-            return true;
         }
-        return false;
+        # Nothing found
+        else {
+            throw new InvalidUUIDException();
+        }
     }
 
     /**
      * Generate new random UUID
      */
-    public function generateNew(): void
+    private function generateRandomUuid(): void
     {
         $this->uuid = RandomUuid::uuid4()->toString();
         $this->generateOtherUUIDFormats();
@@ -185,16 +203,33 @@ class UUID
     }
 
     /**
-     * Getter
+     * get UUID:
+     * ea3c1edf-80cb-8efc-87f9-68635c9b473a
+     * 
+     * @return string $uuid
      */
     public function getUuid(): string
     {
         return $this->uuid;
     }
+
+    /**
+     * get UUID Trimmed:
+     * ea3c1edf80cb8efc87f968635c9b473a
+     * 
+     * @return string $uuid
+     */
     public function getUuidTrimmed(): string
     {
         return $this->uuidTrimmed;
     }
+
+    /**
+     * get UUID IntForm: 
+     * [I;-365158689,-2134143236,-2013697949,1553680186]
+     * 
+     * @return string $uuid
+     */
     public function getUuidInt(): string
     {
         return $this->uuidInt;

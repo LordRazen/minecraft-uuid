@@ -7,7 +7,7 @@ https://minecraft.fandom.com/wiki/Universally_unique_identifier
 <br>
 
 ## Installation
-`composer require lordrazen/minecraft-uuid-converter`
+`composer require lordrazen/minecraft-uuid`
 
 <br>
 
@@ -27,17 +27,13 @@ UUIDs as Integer Arrays (Int-Array):
 <br>
 
 ## How to use this class to convert UUIDs
-Create a new UUID object:
+Create a new UUID object (you can pass any valid UUID form to the constructor):
 
-`$uuid = new UUID();`
-
-Read a given UUID String (String can have any format from above):
-
-`$uuid->read($input);`
+`$uuid = new UUID("ea3bc3ec-7051-4efc-87f9-68635c9b473a");`
 
 Generate a new, random UUID:
 
-`$uuid->generateNew();`
+`$uuid = new UUID(UUID::RANDOM);`
 
 Return the converted UUIDs:
 ```
