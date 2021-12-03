@@ -1,4 +1,4 @@
-# Minecraft UUID Converter
+# Minecraft UUID
 A PHP Library to convert between three of the different Minecraft UUID-Formats.
 
 Official Minecraft Wiki about UUIDs:

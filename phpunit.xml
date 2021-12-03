@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="tests/bootstrap.php" colors="false" cacheResult="false">
 	<testsuites>
-		<testsuite name="UUIDConverter">
+		<testsuite name="UUID">
 			<directory>tests</directory>
 		</testsuite>
 	</testsuites>
