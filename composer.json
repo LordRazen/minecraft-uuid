@@ -12,7 +12,6 @@
             "homepage": "https://minecraft-heads.com"
         }
     ],
-    "minimum-stability": "stable",
     "require": {
         "ramsey/uuid": "^3.7"
     },
