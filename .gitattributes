@@ -1,3 +1,4 @@
+# Ignored Files for Installation via Composer
 tests       export-ignore
 demo        export-ignore
 phpunit.xml export-ignore
