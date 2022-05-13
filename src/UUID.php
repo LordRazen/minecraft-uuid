@@ -25,7 +25,6 @@ use Ramsey\Uuid\Uuid as RandomUuid;
 
 class UUID
 {
-    const RANDOM = 'RANDOM';
     const TYPE = 'UUID';
     const MARKER = 'I';
 
@@ -45,13 +44,13 @@ class UUID
      */
     public function __construct(string $input = '')
     {
-        # Create new Random UUID
-        if ($input === self::RANDOM) {
-            $this->generateRandomUuid();
-        }
         # Check if the $input is not empty
-        else if (!empty($input)) {
+        if (!empty($input)) {
             $this->readUuid($input);
+        }
+        # Create new Random UUID
+        else {
+            $this->generateRandomUuid();
         }
     }
 

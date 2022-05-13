@@ -33,7 +33,7 @@ Create a new UUID object (you can pass any valid UUID form to the constructor):
 
 Generate a new, random UUID:
 
-`$uuid = new UUID(UUID::RANDOM);`
+`$uuid = new UUID();`
 
 Return the converted UUIDs:
 ```

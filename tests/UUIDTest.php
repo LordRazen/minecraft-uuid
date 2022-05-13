@@ -29,7 +29,7 @@ class UUIDTest extends TestCase
     {
         $randomUuids = array();
         for ($i = 0; $i < 10; $i++) {
-            $uuid = new UUID(UUID::RANDOM);
+            $uuid = new UUID();
             array_push($randomUuids, $uuid->getUUID());
         }
         $randomUuidsUnique = array_unique($randomUuids);
