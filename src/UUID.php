@@ -10,6 +10,8 @@
  * Uuid:        ea3c1edf-80cb-8efc-87f9-68635c9b473a
  * UuidTrimmed: ea3c1edf80cb8efc87f968635c9b473a
  * UuidInt:     [I;-365158689,-2134143236,-2013697949,1553680186]
+ * UuidInt2:    [-365158689,-2134143236,-2013697949,1553680186]
+ * 
  * UUIDMost:    -1568344624944410884L - Deprecated with 1.16
  * UUIDLeast:   -8648766833423595718L - Deprecated with 1.16
  *
@@ -31,6 +33,7 @@ class UUID
     private string $uuid;         # UUID Regular
     private string $uuidTrimmed;  # UUID Trimmed
     private string $uuidInt;      # UUIDInt as String
+    private string $uuidInt2;      # UUIDInt as String
     private array  $uuidIntArray = array(); # Array with the values for UUIDInt
 
     const PATTERN_UUID         = '#([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})#';
@@ -111,9 +114,11 @@ class UUID
         }
         # UUID Int exists as String
         else if (isset($this->uuidInt)) {
+            var_dump('xx');
             $this->convertIntToIntArray();
             $this->convertIntArrayToTrim();
             $this->convertTrimToReg();
+            $this->convertIntArrayToInt(); # Redo this to get Int2
         }
     }
 
@@ -160,6 +165,7 @@ class UUID
             $result .= (empty($result)) ? $number : "," . $number;
         }
         $this->uuidInt = "["  . self::MARKER . ";" . $result . "]";
+        $this->uuidInt2 = "[" . $result . "]";
     }
 
     /**
@@ -233,5 +239,17 @@ class UUID
     public function getUuidInt(): string
     {
         return $this->uuidInt;
+    }
+
+    /**
+     * get UUID IntForm 2: 
+     * Only used in LootTables
+     * [-365158689,-2134143236,-2013697949,1553680186]
+     * 
+     * @return string $uuid
+     */
+    public function getUuidInt2(): string
+    {
+        return $this->uuidInt2;
     }
 }
