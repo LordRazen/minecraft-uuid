@@ -114,7 +114,6 @@ class UUID
         }
         # UUID Int exists as String
         else if (isset($this->uuidInt)) {
-            var_dump('xx');
             $this->convertIntToIntArray();
             $this->convertIntArrayToTrim();
             $this->convertTrimToReg();
